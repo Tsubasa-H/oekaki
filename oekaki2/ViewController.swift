@@ -113,9 +113,6 @@ class ViewController: UIViewController {
     
     
     
-    @IBAction func Undo_button(_ sender: Any) {
-        
-}
     
   //segmentbuttonで色を変える
     @IBAction func Segment_Button(_ sender: Any) {
