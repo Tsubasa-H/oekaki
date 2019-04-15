@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,76 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="oekaki2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CkB-Y7-CPN">
+                                <rect key="frame" x="0.0" y="20" width="414" height="673"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9h-7H-5EU">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="trash" id="hdy-cn-ijM">
+                                        <connections>
+                                            <action selector="Trash:" destination="BYZ-38-t0r" id="Zsi-On-KII"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="nqC-KS-DRP">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="aFr-u7-quk">
+                                            <rect key="frame" x="44" y="7" width="170" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="黒"/>
+                                                <segment title="赤"/>
+                                                <segment title="青"/>
+                                                <segment title="緑"/>
+                                                <segment title="消"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="Segment_Button:" destination="BYZ-38-t0r" eventType="valueChanged" id="gW6-uF-Kbv"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="yiQ-UJ-gGO">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="37c-mA-gNY">
+                                            <rect key="frame" x="214" y="7" width="120" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="細"/>
+                                                <segment title="中"/>
+                                                <segment title="太"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="line:" destination="BYZ-38-t0r" eventType="valueChanged" id="yaX-7T-kk5"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CkB-Y7-CPN" secondAttribute="bottom" constant="43" id="4gl-yw-s3I"/>
+                            <constraint firstAttribute="trailing" secondItem="CkB-Y7-CPN" secondAttribute="trailing" id="KE2-jF-mN3"/>
+                            <constraint firstItem="CkB-Y7-CPN" firstAttribute="trailing" secondItem="Z9h-7H-5EU" secondAttribute="trailing" id="MRS-2F-57F"/>
+                            <constraint firstItem="Z9h-7H-5EU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="UMD-o6-wbl"/>
+                            <constraint firstItem="CkB-Y7-CPN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lbQ-C6-sjC"/>
+                            <constraint firstItem="CkB-Y7-CPN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oSX-9k-fXo"/>
+                            <constraint firstItem="CkB-Y7-CPN" firstAttribute="leading" secondItem="Z9h-7H-5EU" secondAttribute="leading" id="vjg-8R-hM3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="color_segment" destination="aFr-u7-quk" id="mw6-vK-29B"/>
+                        <outlet property="line_width" destination="37c-mA-gNY" id="sdP-WE-8Eb"/>
+                        <outlet property="view_canvas" destination="CkB-Y7-CPN" id="4LB-h3-Xan"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="29.23538230884558"/>
         </scene>
     </scenes>
 </document>
